@@ -18,7 +18,7 @@ const createUISlice: StateCreator<
   [],
   [['zustand/immer', never]],
   UISlice
-> = immer<UISlice>((set) => ({
+> = immer<UISlice>((/* set */) => ({
   showMenu: null,
 }));
 
