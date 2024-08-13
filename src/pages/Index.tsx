@@ -1,10 +1,19 @@
-import { Button } from '@nextui-org/button';
+import clsx from 'clsx';
+import Title from 'components/pages/Title';
 
 const Index = () => {
   return (
     <>
-      <div className="text-3xl font-bold underline">Index</div>
-      <Button>Hello</Button>
+      <div className={clsx('flex flex-col h-full')}>
+        <div className="">
+          <div className="mt-1 mb-4">
+            <Title>Proxies</Title>
+          </div>
+          tabs
+        </div>
+
+        {/* {childrenMap[current]} */}
+      </div>
     </>
   );
 };

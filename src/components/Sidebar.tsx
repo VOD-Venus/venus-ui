@@ -1,13 +1,13 @@
+import { Tab, Tabs } from '@nextui-org/tabs';
 import venusLogo from 'assets/venus.svg';
 import clsx from 'clsx';
-import { useNavigate, useLocation } from 'react-router-dom';
-import NaviItem from './NaviItem';
+import { useLocation } from 'react-router-dom';
 
-type SingleNavi = {
+/* type SingleNavi = {
   id: number;
   name: string;
   path: string;
-};
+}; */
 const navi = [
   {
     id: 0,
@@ -37,12 +37,7 @@ const navi = [
 ];
 
 export default function Sidebar() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleRoute = (item: SingleNavi) => {
-    navigate(item.path);
-  };
+  const { pathname } = useLocation();
 
   return (
     <nav
@@ -56,7 +51,7 @@ export default function Sidebar() {
       {/* logo */}
       <div className={clsx('flex w-full justify-center')}>
         <img
-          className={clsx('object-contain w-28 h-28')}
+          className={clsx('object-contain w-28 h-28', 'select-none')}
           alt="Venus"
           src={venusLogo}
         />
@@ -65,16 +60,32 @@ export default function Sidebar() {
       {/* navi */}
       <div className={clsx('flex flex-col justify-between', 'felx-1 h-full')}>
         <div className="my-4">
-          {navi.map((n) => (
-            <NaviItem
-              key={n.id}
-              onClick={() => handleRoute(n)}
-              className="w-full mb-2"
-              active={location.pathname === n.path}
-            >
-              {n.name}
-            </NaviItem>
-          ))}
+          <Tabs
+            aria-label="Tabs"
+            isVertical
+            selectedKey={pathname}
+            classNames={{
+              base: 'flex-1',
+              tabList: 'w-full',
+              cursor: '',
+              tab: 'flex-1',
+              tabContent: '',
+            }}
+          >
+            {navi.map((n) => (
+              <Tab
+                key={n.path}
+                title={
+                  <>
+                    <div className="py-1 flex items-center text-lg">
+                      {n.name}
+                    </div>
+                  </>
+                }
+                href={`#${n.path}`}
+              />
+            ))}
+          </Tabs>
         </div>
 
         {/* core status */}

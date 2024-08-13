@@ -1,7 +1,7 @@
 import 'App.css';
+import 'modern-normalize';
 import { RouterProvider } from 'react-router-dom';
 import router from 'Routes';
-import 'modern-normalize';
 
 function App() {
   return (

@@ -15,6 +15,46 @@ const router: ReturnType<typeof createHashRouter> = createHashRouter([
       </Suspense>
     ),
   },
+  {
+    path: '/settings',
+    element: (
+      <Suspense fallback={<></>}>
+        <MainLayout>
+          <Index />
+        </MainLayout>
+      </Suspense>
+    ),
+  },
+  {
+    path: '/logging',
+    element: (
+      <Suspense fallback={<></>}>
+        <MainLayout>
+          <Index />
+        </MainLayout>
+      </Suspense>
+    ),
+  },
+  {
+    path: '/editor',
+    element: (
+      <Suspense fallback={<></>}>
+        <MainLayout>
+          <Index />
+        </MainLayout>
+      </Suspense>
+    ),
+  },
+  {
+    path: '/about',
+    element: (
+      <Suspense fallback={<></>}>
+        <MainLayout>
+          <Index />
+        </MainLayout>
+      </Suspense>
+    ),
+  },
 ]);
 
 export default router;
