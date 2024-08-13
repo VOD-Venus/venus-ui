@@ -1,3 +1,4 @@
+import MainLayout from 'layouts/MainLayout';
 import { lazy, Suspense } from 'react';
 import { createHashRouter } from 'react-router-dom';
 
@@ -8,7 +9,9 @@ const router: ReturnType<typeof createHashRouter> = createHashRouter([
     path: '/',
     element: (
       <Suspense fallback={<></>}>
-        <Index />
+        <MainLayout>
+          <Index />
+        </MainLayout>
       </Suspense>
     ),
   },
