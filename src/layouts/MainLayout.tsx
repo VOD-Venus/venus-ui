@@ -2,14 +2,10 @@ import clsx from 'clsx';
 import SideBar from 'components/Sidebar';
 import { ReactNode } from 'react';
 
-/* const ContextMenu = dynamic(() => import('components/context-menu')); */
-
 /**
  * Entier App layout
  */
 const MainLayout = ({ children }: { children: ReactNode }) => {
-  /* const showMenu = useStore((s) => s.showMenu); */
-
   return (
     <>
       <main
@@ -28,13 +24,11 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
         ></div>
 
         {/* navi */}
-        <SideBar />
+        <SideBar className="max-sm:min-w-0 max-sm:max-w-0 max-sm:p-0" />
 
         {/* body */}
         <div className="p-8 flex-1 overflow-auto h-full">{children}</div>
       </main>
-
-      {/* {showMenu && <ContextMenu />} */}
     </>
   );
 };

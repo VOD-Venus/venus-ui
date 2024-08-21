@@ -3,11 +3,6 @@ import venusLogo from 'assets/venus.svg';
 import clsx from 'clsx';
 import { useLocation } from 'react-router-dom';
 
-/* type SingleNavi = {
-  id: number;
-  name: string;
-  path: string;
-}; */
 const navi = [
   {
     id: 0,
@@ -36,16 +31,19 @@ const navi = [
   },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ className }: { className?: string }) {
   const { pathname } = useLocation();
 
   return (
     <nav
       className={clsx(
-        'w-56 max-w-xs flex',
+        'min-w-56 flex',
         'py-6 px-5',
         'bg-gray-100 flex-col',
         'dark:bg-rua-gray-800',
+        'transition-all',
+        'overflow-hidden',
+        className,
       )}
     >
       {/* logo */}
