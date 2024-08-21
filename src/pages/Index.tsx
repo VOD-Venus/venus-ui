@@ -1,3 +1,4 @@
+import { Tab, Tabs } from '@nextui-org/tabs';
 import clsx from 'clsx';
 import Title from 'components/pages/Title';
 
@@ -9,10 +10,12 @@ const Index = () => {
           <div className="mt-1 mb-4">
             <Title>Proxies</Title>
           </div>
-          tabs
         </div>
 
-        {/* {childrenMap[current]} */}
+        <Tabs variant="underlined" size="lg">
+          <Tab title="Subscription" />
+          <Tab title="Nodes" />
+        </Tabs>
       </div>
     </>
   );
