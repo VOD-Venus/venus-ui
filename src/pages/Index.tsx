@@ -8,8 +8,8 @@ const Index = () => {
   const Children = {
     subscription: <Subscription />,
     nodes: <>Nodes</>,
-  };
-  const [current, setCurrent] = useState();
+  } as const;
+  const [current, setCurrent] = useState<'subscription' | 'nodes'>();
 
   return (
     <>
@@ -23,13 +23,18 @@ const Index = () => {
         <Tabs
           variant="underlined"
           size="lg"
-          onSelectionChange={(key) => setCurrent(key)}
+          onSelectionChange={(key) => {
+            const keyString = key.toString();
+            if (keyString === 'subscription' || keyString === 'nodes') {
+              setCurrent(keyString);
+            }
+          }}
         >
           <Tab key="subscription" title="Subscription" />
           <Tab key="nodes" title="Nodes" />
         </Tabs>
 
-        <div className="p-4">{Children[current]}</div>
+        <div className="p-4">{Children[current ?? 'subscription']}</div>
       </div>
     </>
   );
