@@ -9,6 +9,9 @@ nvm:
 deps:
 	make nvm CMD="$(PACKAGE_MANAGER) i"
 
+dev:
+	make nvm CMD="$(PACKAGE_MANAGER) dev"
+
 clean:
 	rm -rf dist
 
