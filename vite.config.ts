@@ -6,4 +6,16 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   base: '',
   plugins: [react(), tsconfigPaths()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id: string) {
+          if (id.includes('node_modules')) {
+            const basename = id.split('/node_modules/').pop()?.split('/');
+            return basename?.[0];
+          }
+        },
+      },
+    },
+  },
 });
